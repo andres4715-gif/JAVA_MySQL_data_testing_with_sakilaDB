@@ -4,7 +4,9 @@ import config.DatabaseConfig;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DatabaseHelper {
 
@@ -55,5 +57,22 @@ public class DatabaseHelper {
             }
         }
         return result;
+    }
+
+    public List<Map<String, String>> executeQueryForMultipleColumns(String query, List<String> columnNames) throws SQLException {
+        List<Map<String, String>> results = new ArrayList<>();
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                Map<String, String> row = new HashMap<>();
+                for (String columnName : columnNames) {
+                    row.put(columnName, resultSet.getString(columnName));
+                }
+                results.add(row);
+            }
+        }
+        return results;
     }
 }

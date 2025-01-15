@@ -15,7 +15,8 @@
                 <methods>
 <!--                    <include name="validateActorCount"/>-->
 <!--                    <include name="validateFilmActorTable_actor_id"/>-->
-                    <include name="validateFilmActorTable_actorCount"/>
+<!--                    <include name="validateFilmActorTable_actorCount"/>-->
+                    <include name="validateFilmActorTable_MultipleColumns"/>
                     <!-- ADD another class to execute it -->
                 </methods>
             </class>

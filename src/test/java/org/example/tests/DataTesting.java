@@ -8,6 +8,7 @@ import utils.DatabaseHelper;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class DataTesting {
     private DatabaseHelper dbHelper;
@@ -73,8 +74,36 @@ public class DataTesting {
             e.printStackTrace();
             Assert.fail("Error while executing the query");
         }
-        
+
         System.out.println("Total register actors in film_actor: " + actorFinalCount);
         Assert.assertTrue(actorFinalCount > 0, "No records in table film_actor");
+    }
+
+    @Test(priority = 4, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id and film_id in film_actor table")
+    public void validateFilmActorTable_MultipleColumns() {
+        String query = "SELECT actor_id, film_id FROM film_actor";
+        List<Map<String, String>> records = null;
+
+        try {
+            records = dbHelper.executeQueryForMultipleColumns(query, List.of("actor_id", "film_id"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail("Error while executing the query");
+        }
+
+        Assert.assertNotNull(records, "Result set is null");
+        Assert.assertFalse(records.isEmpty(), "No records found in film_actor table");
+
+        for (Map<String, String> record : records) {
+            String actorId = record.get("actor_id");
+            String filmId = record.get("film_id");
+
+            Assert.assertNotNull(actorId, "actor_id is null");
+            Assert.assertNotNull(filmId, "film_id is null");
+
+            // EXAMPLE: Additional information.
+            Assert.assertTrue(Integer.parseInt(actorId) > 0, "Invalid actor_id: " + actorId);
+            Assert.assertTrue(Integer.parseInt(filmId) > 0, "Invalid film_id: " + filmId);
+        }
     }
 }
