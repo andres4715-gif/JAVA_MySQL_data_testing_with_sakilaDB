@@ -27,6 +27,7 @@ db.password=123456789
 - [ ] How to manage the full data result with more than one column
 - [ ] How can I check the schema?
 - [ ] Check if is better to hava another class for testNG Asserts
+- [ ] Create a TestNG Report
 
 ## 📌 Test to do
 - [ ] Check IDs (actor_id, film_id, etc.) are positives and unique
