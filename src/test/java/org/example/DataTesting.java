@@ -38,7 +38,7 @@ public class DataTesting {
         try {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
-                System.out.println("✅✅✅ Database connection closed successfully ✅✅✅");
+                System.out.println("🚫🚫🚫 Database connection closed successfully 🚫🚫🚫");
             }
         } catch (Exception e) {
             e.printStackTrace();
