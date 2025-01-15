@@ -4,6 +4,14 @@
 1. MySQL should be installed in you machine 
 2. SaKila db should be created within MySqlWorkbench
 3. MySQL should be running before running any test case
+4. ADD your local credentials on this config.properties file: 
+```declarative
+PATH: src/main/resources/config.properties
+
+db.url=jdbc:mysql://localhost:3306/sakila
+db.user=root
+db.password=123456789
+```
 
 ## 👁️ How to run this data testing framework: 
 1. Clone the public repository: [link](https://github.com/andres4715-gif/JAVA_MySQL_data_testing_with_sakilaDB.git)
