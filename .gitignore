@@ -1,0 +1,82 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+.idea_modules/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.gz
+*.tgz
+*.rar
+*.7z
+*.tar
+*.swp
+*~
+
+# Generated files
+*.generated
+*.orig
+*.rej
+*.bak
+*.tmp
+*.old
+*.out
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Test output
+test-output/
+surefire-reports/
+
+# Eclipse or NetBeans metadata (if the project is opened in other IDEs)
+.metadata/
+bin/
+.nb-gradle/
+build/
+
+# IDE auto-saves
+*.sublime-workspace
+*.sublime-project
+
+# Database testing-related files
+db-debug.log
+db-backup/
+
+# Ignore configuration files with sensitive data
+*.env
+*.properties
+
+# Exclude JARs or libraries if present in the project
+libs/
+
+# Exclude reports (if applicable)
+reports/
+*.html
+*.xml
