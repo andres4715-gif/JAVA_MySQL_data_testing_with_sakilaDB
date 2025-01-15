@@ -1,4 +1,4 @@
-# 🚀️ JAVA MY SQL DATA TESTING USIGN SAKILA DB 📊
+# 🚀️ JAVA MySQL DATA TESTING USIGN SAKILA DB 📊
 
 ![image](https://github.com/user-attachments/assets/a922c944-77ca-491a-a6b3-0e5d2a231265)
 
