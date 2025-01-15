@@ -25,6 +25,8 @@ db.password=123456789
 - [X] Implement the testNG file and run all list of existing test cases
 - [X] Add priority using TestNG
 - [ ] How to manage the full data result with more than one column
+- [ ] How can I check the schema?
+- [ ] Check if is better to hava another class for testNG Asserts
 
 
 🚚🛠️ FRAMEWORK UNDER CONSTRUCTION 🚧

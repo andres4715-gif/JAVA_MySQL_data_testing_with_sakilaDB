@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utils.DatabaseHelper;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class DataTesting {
@@ -59,5 +60,21 @@ public class DataTesting {
 
         System.out.println("Total number of actors: " + actorCount);
         Assert.assertTrue(actorCount > 0, "Actor count should be greater than zero");
+    }
+
+    @Test(priority = 3, description = "Validate Film Actor Table_actor Count")
+    public void validateFilmActorTable_actorCount() {
+        int actorFinalCount = 0;
+        String query = "SELECT COUNT(*) AS total FROM film_actor";
+        try {
+            actorFinalCount = dbHelper.executeQueryForSingleInt(query, "total");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail("Error while executing the query");
+        }
+        
+        System.out.println("Total register actors in film_actor: " + actorFinalCount);
+        Assert.assertTrue(actorFinalCount > 0, "No records in table film_actor");
     }
 }
