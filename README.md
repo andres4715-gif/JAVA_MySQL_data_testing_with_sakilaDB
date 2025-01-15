@@ -21,10 +21,10 @@ db.password=123456789
 4. Go to testNG file to run any data base test case
 
 ## 🚀 TO DO: 
-- [ ] How can implement forEach and afterEach 
-- [ ] Implement the testNG file and run all list of existing test cases
+- [X] How can implement forEach and afterEach 
+- [X] Implement the testNG file and run all list of existing test cases
+- [X] Add priority using TestNG
 - [ ] How to manage the full data result with more than one column
-- [ ] Add priority using TestNG
 
 
 🚚🛠️ FRAMEWORK UNDER CONSTRUCTION 🚧
