@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="TestSuite" verbose="1">
-    <!-- Run all test setup -->
+     Run all test setup
     <test name="AllTests">
         <packages>
-            <package name="org.example"/>
+<!--            <package name="org.example.tests"/>-->
         </packages>
     </test>
 
@@ -11,8 +11,9 @@
     <!-- Setup to run a specific method -->
     <test name="SingleTestMethod">
         <classes>
-            <class name="org.example.DataTesting">
+            <class name="org.example.tests.DataTesting">
                 <methods>
+                    <include name="validateActorCount"/>
                     <include name="validateFilmActorTable_actor_id"/>
                     <!-- ADD another class to execute it -->
                 </methods>
