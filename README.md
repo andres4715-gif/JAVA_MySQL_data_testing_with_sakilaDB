@@ -7,10 +7,8 @@
 1. MySQL should be installed in you machine 
 2. SaKila db should be created within MySqlWorkbench
 3. MySQL should be running before running any test case
-4. ADD your local credentials on this config.properties file: 
-```declarative
-PATH: src/main/resources/config.properties
-
+4. ADD your local credentials on this config.properties file: PATH: src/main/resources/config.properties
+```properties
 db.url=jdbc:mysql://localhost:3306/sakila
 db.user=root
 db.password=123456789
