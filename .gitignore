@@ -74,4 +74,3 @@ libs/
 # Exclude reports (if applicable)
 reports/
 *.html
-*.xml
