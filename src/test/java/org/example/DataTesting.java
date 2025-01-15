@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.config.DatabaseConfig;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import org.example.config.DatabaseConfig;
 
 public class DataTesting {
 
@@ -22,6 +22,7 @@ public class DataTesting {
                 DatabaseConfig.getUrl(),
                 DatabaseConfig.getUser(),
                 DatabaseConfig.getPassword())) {
+
             System.out.println("✅✅✅ Good Connection ✅✅✅");
 
             // DB QUERY

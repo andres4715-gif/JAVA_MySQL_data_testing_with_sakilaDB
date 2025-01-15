@@ -23,7 +23,8 @@ db.password=123456789
 ## 🚀 TO DO: 
 - [ ] How can implement forEach and afterEach 
 - [ ] Implement the testNG file and run all list of existing test cases
-- [ ] How to manage the full data result with more than one column 
+- [ ] How to manage the full data result with more than one column
+- [ ] Add priority using TestNG
 
 
 🚚🛠️ FRAMEWORK UNDER CONSTRUCTION 🚧
