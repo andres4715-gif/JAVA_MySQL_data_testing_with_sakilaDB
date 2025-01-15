@@ -45,7 +45,7 @@ public class DataTesting {
         Assert.assertFalse(actorIds.isEmpty(), "Actor IDs list is empty");
     }
 
-    @Test(priority = 2, description = "Validate that the film_actor")
+    @Test(priority = 2, description = "Validate count for film_actors")
     public void validateActorCount() {
         String query = "SELECT COUNT(*) AS total FROM actor";
         int actorCount = 0;
