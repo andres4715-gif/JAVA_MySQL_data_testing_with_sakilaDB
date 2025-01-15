@@ -28,5 +28,9 @@ db.password=123456789
 - [ ] How can I check the schema?
 - [ ] Check if is better to hava another class for testNG Asserts
 
+## 📌 Test to do
+- [ ] Check IDs (actor_id, film_id, etc.) are positives and unique
+- [ ]
+
 
 🚚🛠️ FRAMEWORK UNDER CONSTRUCTION 🚧

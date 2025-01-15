@@ -29,7 +29,7 @@ public class DataTesting {
     }
 
 
-    @Test(priority = 1, description = "Validate actor_id values in film_actor table")
+    @Test(priority = 1, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id values in film_actor table")
     public void validateFilmActorTable_actor_id() {
         String query = "SELECT * FROM film_actor";
         List<String> actorIds = null;
@@ -46,7 +46,7 @@ public class DataTesting {
         Assert.assertFalse(actorIds.isEmpty(), "Actor IDs list is empty");
     }
 
-    @Test(priority = 2, description = "Validate count for film_actors")
+    @Test(priority = 2, description = "🧤 BACK BOX TEST CASE 🧤 Validate count for film_actors")
     public void validateActorCount() {
         String query = "SELECT COUNT(*) AS total FROM actor";
         int actorCount = 0;
@@ -62,7 +62,7 @@ public class DataTesting {
         Assert.assertTrue(actorCount > 0, "Actor count should be greater than zero");
     }
 
-    @Test(priority = 3, description = "Validate Film Actor Table_actor Count")
+    @Test(priority = 3, description = "🧤 BACK BOX TEST CASE 🧤 Validate Film Actor Table_actor Count")
     public void validateFilmActorTable_actorCount() {
         int actorFinalCount = 0;
         String query = "SELECT COUNT(*) AS total FROM film_actor";
