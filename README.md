@@ -1,6 +1,7 @@
 # 🚀️ JAVA MY SQL DATA TESTING USIGN SAKILA DB 📊
 
-![image](https://github.com/user-attachments/assets/171a0387-d39a-4332-8437-e2312add2d66)
+![image](https://github.com/user-attachments/assets/a922c944-77ca-491a-a6b3-0e5d2a231265)
+
 
 ## 📌 Pre requisites:
 1. MySQL should be installed in you machine 
