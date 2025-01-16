@@ -36,6 +36,7 @@ public class DataTesting {
         String query =
                 "SELECT * " +
                         "FROM film_actor";
+
         List<String> actorIds = null;
 
         try {
@@ -55,6 +56,7 @@ public class DataTesting {
         String query =
                 "SELECT COUNT(*) AS total " +
                         "FROM actor";
+
         int actorCount = 0;
 
         try {
@@ -74,6 +76,7 @@ public class DataTesting {
         String query =
                 "SELECT COUNT(*) AS total " +
                         "FROM film_actor";
+
         try {
             actorFinalCount = dbHelper.executeQueryForSingleInt(query, "total");
 
@@ -92,6 +95,7 @@ public class DataTesting {
                 "SELECT COUNT(*) AS invalid_count " +
                         "FROM film " +
                         "WHERE description IS NULL OR description = ''";
+
         int invalidCount = dbHelper.executeQueryForSingleInt(query, "invalid_count");
         System.out.println("🚀 Film where Description, null or empty: " + invalidCount);
         Assert.assertEquals(invalidCount, 0, "Check, some films has an empty description");
@@ -116,6 +120,7 @@ public class DataTesting {
         String query =
                 "SELECT actor_id, film_id " +
                         "FROM film_actor";
+
         List<Map<String, String>> records = null;
 
         try {
@@ -150,6 +155,7 @@ public class DataTesting {
                         "actor_id, first_name, last_name " +
                         "FROM actor " +
                         "Limit 10";
+
         List<Map<String, String>> records = null;
 
         try {
