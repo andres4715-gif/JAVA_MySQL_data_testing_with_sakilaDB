@@ -33,7 +33,9 @@ public class DataTesting {
 
     @Test(priority = 1, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id values in film_actor table")
     public void validateFilmActorTable_actor_id() {
-        String query = "SELECT * FROM film_actor";
+        String query =
+                "SELECT * " +
+                        "FROM film_actor";
         List<String> actorIds = null;
 
         try {
@@ -50,7 +52,9 @@ public class DataTesting {
 
     @Test(priority = 2, description = "🧤 BACK BOX TEST CASE 🧤 Validate count for film_actors")
     public void validateActorCount() {
-        String query = "SELECT COUNT(*) AS total FROM actor";
+        String query =
+                "SELECT COUNT(*) AS total " +
+                        "FROM actor";
         int actorCount = 0;
 
         try {
@@ -67,7 +71,9 @@ public class DataTesting {
     @Test(priority = 3, description = "🧤 BACK BOX TEST CASE 🧤 Validate Film Actor Table_actor Count")
     public void validateFilmActorTable_actorCount() {
         int actorFinalCount = 0;
-        String query = "SELECT COUNT(*) AS total FROM film_actor";
+        String query =
+                "SELECT COUNT(*) AS total " +
+                        "FROM film_actor";
         try {
             actorFinalCount = dbHelper.executeQueryForSingleInt(query, "total");
 
@@ -80,17 +86,36 @@ public class DataTesting {
         Assert.assertTrue(actorFinalCount > 0, "No records in table film_actor");
     }
 
-    @Test(priority = 4, description = "🧤 BACK BOX TEST CASE 🧤 validate Film Descriptions")
+    @Test(priority = 4, description = "🧤 BACK BOX TEST CASE 🧤 Validate Film Descriptions")
     public void validateFilmDescriptions() throws SQLException {
-        String query = "SELECT COUNT(*) AS invalid_count FROM film WHERE description IS NULL OR description = ''";
+        String query =
+                "SELECT COUNT(*) AS invalid_count " +
+                        "FROM film " +
+                        "WHERE description IS NULL OR description = ''";
         int invalidCount = dbHelper.executeQueryForSingleInt(query, "invalid_count");
-        System.out.println("🚀 Film where Description is null or empty: " + invalidCount);
+        System.out.println("🚀 Film where Description, null or empty: " + invalidCount);
         Assert.assertEquals(invalidCount, 0, "Check, some films has an empty description");
     }
 
-    @Test(priority = 5, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id and film_id in film_actor table")
+    @Test(priority = 5, description = "🧤 BACK BOX TEST CASE 🧤 Validate Category ID is not Null")
+    public void validateCategory() throws SQLException {
+        String query =
+                "SELECT COUNT(*) categoryID\n" +
+                        "FROM film f\n" +
+                        "JOIN film_category fc\n" +
+                        "ON f.film_id = fc.film_id\n" +
+                        "WHERE category_id is NULL";
+
+        int invalidCategoryId = dbHelper.executeQueryForSingleInt(query, "categoryID");
+        System.out.println("🚀 Category ID, null or empty: " + invalidCategoryId);
+        Assert.assertEquals(invalidCategoryId, 0, "Check, some Category ID with null values");
+    }
+
+    @Test(priority = 6, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id and film_id in film_actor table")
     public void validateFilmActorTable_MultipleColumns() throws JsonProcessingException {
-        String query = "SELECT actor_id, film_id FROM film_actor";
+        String query =
+                "SELECT actor_id, film_id " +
+                        "FROM film_actor";
         List<Map<String, String>> records = null;
 
         try {
@@ -118,9 +143,13 @@ public class DataTesting {
         }
     }
 
-    @Test(priority = 6, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor names in actor table")
+    @Test(priority = 7, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor names in actor table")
     public void verifyActorNamesInActorTable_multipleColumns() throws JsonProcessingException {
-        String query = "SELECT actor_id, first_name, last_name FROM actor limit 10";
+        String query =
+                "SELECT " +
+                        "actor_id, first_name, last_name " +
+                        "FROM actor " +
+                        "Limit 10";
         List<Map<String, String>> records = null;
 
         try {

@@ -19,6 +19,7 @@
                     <include name="validateFilmActorTable_MultipleColumns"/>
                     <include name="verifyActorNamesInActorTable_multipleColumns"/>
                     <include name="validateFilmDescriptions"/>
+                    <include name="validateCategory"/>
                     <!-- ADD another class to execute it -->
                 </methods>
             </class>
