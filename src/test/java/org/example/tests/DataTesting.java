@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utils.DatabaseHelper;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -79,7 +80,15 @@ public class DataTesting {
         Assert.assertTrue(actorFinalCount > 0, "No records in table film_actor");
     }
 
-    @Test(priority = 4, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id and film_id in film_actor table")
+    @Test(priority = 4, description = "🧤 BACK BOX TEST CASE 🧤 validate Film Descriptions")
+    public void validateFilmDescriptions() throws SQLException {
+        String query = "SELECT COUNT(*) AS invalid_count FROM film WHERE description IS NULL OR description = ''";
+        int invalidCount = dbHelper.executeQueryForSingleInt(query, "invalid_count");
+        System.out.println("🚀 Film where Description is null or empty: " + invalidCount);
+        Assert.assertEquals(invalidCount, 0, "Check, some films has an empty description");
+    }
+
+    @Test(priority = 5, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id and film_id in film_actor table")
     public void validateFilmActorTable_MultipleColumns() throws JsonProcessingException {
         String query = "SELECT actor_id, film_id FROM film_actor";
         List<Map<String, String>> records = null;
@@ -109,7 +118,7 @@ public class DataTesting {
         }
     }
 
-    @Test(priority = 5, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor names in actor table")
+    @Test(priority = 6, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor names in actor table")
     public void verifyActorNamesInActorTable_multipleColumns() throws JsonProcessingException {
         String query = "SELECT actor_id, first_name, last_name FROM actor limit 10";
         List<Map<String, String>> records = null;
