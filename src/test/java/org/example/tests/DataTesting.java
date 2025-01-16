@@ -1,12 +1,11 @@
 package org.example.tests;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utils.DatabaseHelper;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -80,7 +79,7 @@ public class DataTesting {
     }
 
     @Test(priority = 4, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id and film_id in film_actor table")
-    public void validateFilmActorTable_MultipleColumns() {
+    public void validateFilmActorTable_MultipleColumns() throws JsonProcessingException {
         String query = "SELECT actor_id, film_id FROM film_actor";
         List<Map<String, String>> records = null;
 
@@ -90,6 +89,8 @@ public class DataTesting {
             e.printStackTrace();
             Assert.fail("Error while executing the query");
         }
+        // Printing result as a Json
+        dbHelper.printAsJson(records);
 
         Assert.assertNotNull(records, "Result set is null");
         Assert.assertFalse(records.isEmpty(), "No records found in film_actor table");
