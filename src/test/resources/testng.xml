@@ -13,10 +13,11 @@
         <classes>
             <class name="org.example.tests.DataTesting">
                 <methods>
-<!--                    <include name="validateActorCount"/>-->
-<!--                    <include name="validateFilmActorTable_actor_id"/>-->
-<!--                    <include name="validateFilmActorTable_actorCount"/>-->
+                    <include name="validateActorCount"/>
+                    <include name="validateFilmActorTable_actor_id"/>
+                    <include name="validateFilmActorTable_actorCount"/>
                     <include name="validateFilmActorTable_MultipleColumns"/>
+                    <include name="verifyActorNamesInActorTable_multipleColumns"/>
                     <!-- ADD another class to execute it -->
                 </methods>
             </class>
