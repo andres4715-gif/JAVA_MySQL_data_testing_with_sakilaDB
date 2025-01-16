@@ -6,6 +6,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utils.DatabaseHelper;
+import utils.queries.table.actor;
+import utils.queries.table.film;
+import utils.queries.table.film_actor;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -33,14 +36,10 @@ public class DataTesting {
 
     @Test(priority = 1, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id values in film_actor table")
     public void validateFilmActorTable_actor_id() {
-        String query =
-                "SELECT * " +
-                        "FROM film_actor";
-
         List<String> actorIds = null;
 
         try {
-            actorIds = dbHelper.executeQuerylist(query, "actor_id");
+            actorIds = dbHelper.executeQuerylist(film_actor.GET_ALL_FILM_ACTORS, "actor_id");
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail("Error while executing the query");
@@ -53,14 +52,10 @@ public class DataTesting {
 
     @Test(priority = 2, description = "🧤 BACK BOX TEST CASE 🧤 Validate count for film_actors")
     public void validateActorCount() {
-        String query =
-                "SELECT COUNT(*) AS total " +
-                        "FROM actor";
-
         int actorCount = 0;
 
         try {
-            actorCount = dbHelper.executeQueryForSingleInt(query, "total");
+            actorCount = dbHelper.executeQueryForSingleInt(actor.COUNT_ACTORS, "total");
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail("Error while executing the query");
@@ -73,12 +68,9 @@ public class DataTesting {
     @Test(priority = 3, description = "🧤 BACK BOX TEST CASE 🧤 Validate Film Actor Table_actor Count")
     public void validateFilmActorTable_actorCount() {
         int actorFinalCount = 0;
-        String query =
-                "SELECT COUNT(*) AS total " +
-                        "FROM film_actor";
 
         try {
-            actorFinalCount = dbHelper.executeQueryForSingleInt(query, "total");
+            actorFinalCount = dbHelper.executeQueryForSingleInt(film_actor.COUNT_FILM_ACTOR, "total");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,40 +83,24 @@ public class DataTesting {
 
     @Test(priority = 4, description = "🧤 BACK BOX TEST CASE 🧤 Validate Film Descriptions")
     public void validateFilmDescriptions() throws SQLException {
-        String query =
-                "SELECT COUNT(*) AS invalid_count " +
-                        "FROM film " +
-                        "WHERE description IS NULL OR description = ''";
-
-        int invalidCount = dbHelper.executeQueryForSingleInt(query, "invalid_count");
+        int invalidCount = dbHelper.executeQueryForSingleInt(film.COUNT_FILM, "invalid_count");
         System.out.println("🚀 Film where Description, null or empty: " + invalidCount);
         Assert.assertEquals(invalidCount, 0, "Check, some films has an empty description");
     }
 
     @Test(priority = 5, description = "🧤 BACK BOX TEST CASE 🧤 Validate Category ID is not Null")
     public void validateCategory() throws SQLException {
-        String query =
-                "SELECT COUNT(*) categoryID\n" +
-                        "FROM film f\n" +
-                        "JOIN film_category fc\n" +
-                        "ON f.film_id = fc.film_id\n" +
-                        "WHERE category_id is NULL";
-
-        int invalidCategoryId = dbHelper.executeQueryForSingleInt(query, "categoryID");
+        int invalidCategoryId = dbHelper.executeQueryForSingleInt(film.FILM_JOIN_FILM_CATEGORY, "categoryID");
         System.out.println("🚀 Category ID, null or empty: " + invalidCategoryId);
         Assert.assertEquals(invalidCategoryId, 0, "Check, some Category ID with null values");
     }
 
     @Test(priority = 6, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor_id and film_id in film_actor table")
     public void validateFilmActorTable_MultipleColumns() throws JsonProcessingException {
-        String query =
-                "SELECT actor_id, film_id " +
-                        "FROM film_actor";
-
         List<Map<String, String>> records = null;
 
         try {
-            records = dbHelper.executeQueryForMultipleColumns(query, List.of("actor_id", "film_id"));
+            records = dbHelper.executeQueryForMultipleColumns(film_actor.GET_ALL_ACTORID_FILMID, List.of("actor_id", "film_id"));
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail("Error while executing the query");
@@ -150,16 +126,10 @@ public class DataTesting {
 
     @Test(priority = 7, description = "🧤 BACK BOX TEST CASE 🧤 Validate actor names in actor table")
     public void verifyActorNamesInActorTable_multipleColumns() throws JsonProcessingException {
-        String query =
-                "SELECT " +
-                        "actor_id, first_name, last_name " +
-                        "FROM actor " +
-                        "Limit 10";
-
         List<Map<String, String>> records = null;
 
         try {
-            records = dbHelper.executeQueryForMultipleColumns(query, List.of("actor_id", "first_name", "last_name"));
+            records = dbHelper.executeQueryForMultipleColumns(actor.GET_ACTORID_FISTNAME_LASTNAME_LIMIT_10, List.of("actor_id", "first_name", "last_name"));
             dbHelper.printAsJson(records);
         } catch (Exception e) {
             e.printStackTrace();
